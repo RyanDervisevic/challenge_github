@@ -1,11 +1,11 @@
 name: workflow trigger
 on: push
 jobs:
-  job1:
-    name: First Job
+  main:
     runs-on: ubuntu-latest
     steps:
-    - name: Step1
-      uses: actions/checkout@v2
-    - name: Step2
-      uses: actions/upload@v2
+      - uses: actions/checkout@v2
+      - uses: actions/upload-artifact@v2
+        with: 
+          name: ${{ env.ARTIFACT_NAME }}
+          path: .
